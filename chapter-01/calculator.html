@@ -1,17 +1,17 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>A JavaScript Calculator</title>
+    <title>用原生JS实现的计算器</title>
     <style>
-     p, input { font-family: monospace; }
-     p, { white-space: pre; }
+     p, input { font-family: monospace; } /*字体家族*/
+     p, { white-space: pre; } /*段落中的文本不换行*/
     </style>
   </head>
   <body>
     <div id="myCalc">
-      <p>x <input class="calc-x-input" value="0"></p>
-      <p>y <input class="calc-y-input" value="0"></p>
-      <p>--------------------</p>
+      <p>x <input class="calc-x-input" value=""></p>
+      <p>y <input class="calc-y-input" value=""></p>
+      <p>----------下面是计算结果----------</p>
       <p>= <span class="calc-result"></span></p>
     </div>
     <script type="text/javascript">
