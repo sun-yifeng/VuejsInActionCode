@@ -3,7 +3,7 @@ var APP_LOG_LIFECYCLE_EVENTS = true;	//#A
 var webstore = new Vue({
   el: "#app",
   data: {
-    sitename: "Vue.js Pet Depot",
+    sitename: "探索生命周期",
   },
   beforeCreate: function() {	//#B
     if (APP_LOG_LIFECYCLE_EVENTS) {	//#B

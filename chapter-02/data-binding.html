@@ -1,6 +1,7 @@
 <html>
   <head>
-    <title>Vue.js Pet Depot</title>
+	<meta charset="utf-8">
+    <title>检查vue中的属性-vue-devtools</title>
     <script src="https://unpkg.com/vue"></script>  </head>
   <body>
     <div id="app">
@@ -8,11 +9,11 @@
         <h1 v-text="sitename"></h1>	//#B
       </header>	//#A
     </div>
-<script type="text/javascript">
+	<script type="text/javascript">
       var webstore = new Vue({
         el: '#app', // <=== Don抰 forget this comma!
         data: {	//#C
-          sitename: 'Vue.js Pet Depot'	//#D
+          sitename: 'Vue.js Pet Depot !!!'	//#D
         }	//#C
       });
     </script>
