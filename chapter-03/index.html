@@ -13,7 +13,7 @@
       </div>
       <div class="nav navbar-nav navbar-right cart">
         <button type="button" class="btn btn-default btn-lg" v-on:click="showCheckout">
-          <span class="glyphicon glyphicon-shopping-cart">{{ cartItemCount}}</span> Checkout
+          <span class="glyphicon glyphicon-shopping-cart"><span style="margin-left: 10px;color: #FF0000;">{{ cartItemCount}}</span></span> Checkout
         </button>
       </div>
     </div>
@@ -33,16 +33,16 @@
           <p class="price">
             {{product.price | formatPrice}}
           </p>
+		  <!-- 添加到购物车 -->
           <button class=" btn btn-primary btn-lg"
-            v-on:click="addToCart"
-            v-if="canAddToCart">Add to cart</button>
-            <button disabled="true" class=" btn btn-primary btn-lg"
+             v-on:click="addToCart" v-if="canAddToCart">Add to cart</button>
+          <button class=" btn btn-primary btn-lg" disabled="true"
               v-else >Add to cart</button>
         </div>
       </div>
       <div v-else>
 
-      </div>
+      </div> 
     </div><!--end of row-->
 
   </main><!--end of main-->
@@ -61,27 +61,30 @@
           description: "A 25 pound bag of <em>irresistible</em>, organic goodness for your cat.",
           price: 2000,
           image: "assets/images/product-fullsize.png",
-          availableInventory: 5
+          availableInventory: 5 //库存
         },
         cart: []
       },
       methods: {
+		// 添加到购物车
         addToCart: function() {
           this.cart.push( this.product.id );
         },
         showCheckout() {
+			// 切换showProduct
             this.showProduct = this.showProduct ? false: true;
         },
       },
       computed: {
           cartItemCount() {
-            return this.cart.length || '';
+            return this.cart.length || '0';
           },
           canAddToCart() {
             return this.product.availableInventory > this.cartItemCount;
 
           }
       },
+	  // 过滤器
       filters: {
         formatPrice(price) {	//#B
           if (!parseInt(price)) { return ""; }	//#C
@@ -98,48 +101,48 @@
             return "$" + (price / 100).toFixed(2);	//#H
           }
         }
-
-      },
-      beforeCreate: function() {	//#B
-    if (APP_LOG_LIFECYCLE_EVENTS) {	//#B
-      console.log("beforeCreate");	//#B
-    }	//#B
-  },	//#B
-  created: function() {	//#C
-    if (APP_LOG_LIFECYCLE_EVENTS) {	//#C
-      console.log("created");	//#C
-    }	//#C
-  },	//#C
-  beforeMount: function() {	//#D
-    if (APP_LOG_LIFECYCLE_EVENTS) {	//#D
-      console.log(" beforeMount");	//#D
-    }	//#D
-  },	//#D
-  mounted:  function() {	//#E
-    if (APP_LOG_LIFECYCLE_EVENTS) {	//#E
-      console.log(" mounted"); 	//#E
-    } 	//#E
-  },	//#E
-  beforeUpdate:  function() { 	//#F
-    if (APP_LOG_LIFECYCLE_EVENTS) { 	//#F
-      console.log("beforeUpdate"); 	//#F
-    } 	//#F
-  },	//#F
-  updated:  function() { 	//#G
-    if (APP_LOG_LIFECYCLE_EVENTS) { 	//#G
-      console.log("updated"); 	//#G
-    } 	//#G
-  },	//#G
-  beforeDestroyed:  function() { 	//#H
-    if (APP_LOG_LIFECYCLE_EVENTS) { 	//#H
-      console.log("beforeDestroyed "); 	//#H
-    } 	//#H
-  },	//#H
-  destroyed:  function() { 	//#I
-    if (APP_LOG_LIFECYCLE_EVENTS) { 	//#I
-      console.log("destroyed"); 	//#I
-    } 	//#I
-  }	//#I
+	  },
+	  // 生命周期函数
+	  beforeCreate: function() {	//#B
+		if (APP_LOG_LIFECYCLE_EVENTS) {	//#B
+		  console.log("beforeCreate");	//#B
+		}	//#B
+	  },	//#B
+	  created: function() {	//#C
+		if (APP_LOG_LIFECYCLE_EVENTS) {	//#C
+		  console.log("created");	//#C
+		}	//#C
+	  },	//#C
+	  beforeMount: function() {	//#D
+		if (APP_LOG_LIFECYCLE_EVENTS) {	//#D
+		  console.log(" beforeMount");	//#D
+		}	//#D
+	  },	//#D
+	  mounted:  function() {	//#E
+		if (APP_LOG_LIFECYCLE_EVENTS) {	//#E
+		  console.log(" mounted"); 	//#E
+		} 	//#E
+	  },	//#E
+	  beforeUpdate:  function() { 	//#F
+		if (APP_LOG_LIFECYCLE_EVENTS) { 	//#F
+		  console.log("beforeUpdate"); 	//#F
+		} 	//#F
+	  },	//#F
+	  updated:  function() { 	//#G
+		if (APP_LOG_LIFECYCLE_EVENTS) { 	//#G
+		  console.log("updated"); 	//#G
+		} 	//#G
+	  },	//#G
+	  beforeDestroyed:  function() { 	//#H
+		if (APP_LOG_LIFECYCLE_EVENTS) { 	//#H
+		  console.log("beforeDestroyed "); 	//#H
+		} 	//#H
+	  },	//#H
+	  destroyed:  function() { 	//#I
+		if (APP_LOG_LIFECYCLE_EVENTS) { 	//#I
+		  console.log("destroyed"); 	//#I
+		} 	//#I
+	  }	//#I
 });
 
     </script>
