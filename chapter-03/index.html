@@ -33,7 +33,7 @@
           <p class="price">
             {{product.price | formatPrice}}
           </p>
-		  <!-- 添加到购物车 -->
+		      <!-- 添加到购物车 -->
           <button class=" btn btn-primary btn-lg"
              v-on:click="addToCart" v-if="canAddToCart">Add to cart</button>
           <button class=" btn btn-primary btn-lg" disabled="true"
