@@ -119,13 +119,14 @@
                     <button type="submit" class="btn btn-primary submit" v-on:click="submitForm">Place Order</button>
                   </div>
                 </div>
+				<!-- 预览 -->
                 <div class="col-md-12 verify">
                   <pre>
                     First Name: {{order.firstName}}
                     Last Name: {{order.lastName}}
                     Address: {{order.address}}
                     City: {{order.city}}
-                    Zip: {{order.zip}}
+                    Zip: {{typeof (order.zip)}}
                     State: {{order.state}}
                     Method: {{order.method}}
                     Gift: {{order.gift}}
@@ -187,10 +188,12 @@
           this.cart.push( this.product.id );
         },
         showCheckout() {
+		  // 显示购物车
           this.showProduct = this.showProduct ? false: true;
         },
         submitForm() {
-          alert('Submitted');
+		  // 提交按钮
+          alert('Submitted，模拟提交');
         }
       },
       computed: {

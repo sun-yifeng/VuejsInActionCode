@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/vue.js"></script>
+	<!-- 修改标题 -->
+    <title id="title">{{title}}</title>
+</head>
+<body>
+<div id="ask">
+	<!--vue不能控制body和html的标签-->
+    <a href="#" @click.prevent.once="links">简单记录</a>
+</div>
+<script>
+    var vue = function (options){new Vue(options)};
+    vue({
+        el:'#title',
+        data:{
+            title:'Vue 修饰符once的方法使用'
+        }
+    });
+    var app = vue({
+        el:'#ask',
+        data:{
+        },
+        methods:{
+            links: function(){
+                alert("这是子级");
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
